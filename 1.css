@@ -1,0 +1,158 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.wq {
+	background: rgba(85, 170, 255, 0.2);
+	padding-bottom: 250px;
+}
+
+.qw {
+
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding-bottom: 0px;
+	border-radius: 20px;
+}
+
+a {
+	color: red;
+}
+
+body {
+	background-image: url(https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wB6i?ver=ae16);
+	background-attachment: fixed;
+}
+
+.qe {
+	border: #5555FF 1px solid;
+	width: 90px;
+	height: 23px;
+	padding-left: 10px;
+	padding-right: 1px;
+	position: absolute;
+	top: 4px;
+	right: 40px;
+	border-radius: 20px;
+}
+
+.wq a:hover {
+	background-color: #dddddd;
+	color: skyblue;
+}
+
+#fg {
+	width: 230px;
+	height: 780px;
+	background-color: #fefff2;
+}
+
+.tt {
+	font-size: 15px;
+}
+
+.ee {
+	padding-left: 60px;
+	color: #000000;
+}
+
+.dd {
+	background-image: url(https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=e84a2bb608f41bd5da06e0f261eaadf3/f2deb48f8c5494ee654bc3842bf5e0fe98257ec6.jpg);
+	background-repeat: repeat-x;
+	background-size: cover;
+	opacity: 0.5;
+}
+
+#tt {
+	width: 1295px;
+	height: 200px;
+	background-image: url(2.jpg);
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	left: 250px;
+}
+
+#v {
+	width: 145px;
+	height: 200px;
+	position: absolute;
+	top: 30px;
+	right: 0px;
+}
+
+.nb {
+	color: #000000;
+}
+
+#zx {
+	width: 800px;
+	height: 40px;
+	position: absolute;
+	top: 0px;
+	left: 200px;
+	background-color: #FEFFF2;
+	opacity: 0.5;
+}
+
+input::placeholder {
+	color: #a3a3a3;
+	font-style: italic;
+}
+
+input:focus {
+	outline: 0;
+}
+
+input {
+	width: 70%;
+	height: 25px;
+	background: none;
+	border: 0;
+	border-bottom: 2px solid slategray;
+	font-size: 15px;
+	color: #000000;
+}
+
+#jk {
+	width: 600px;
+	height: 600px;
+	background-color: #EEEEEE;
+	position: absolute;
+	left: 260px;
+	top: 220px;
+	opacity: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	border: 0px;
+}
+.fd{
+	width: 670px;
+	height: 600px;
+	background-color: #EEEEEE;
+	position: absolute;
+	left: 870px;
+	top: 220px;
+	opacity: 1;
+}

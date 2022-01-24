@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>爷的网站</title>
+		<link rel="Shortcut Icon" href="https://g.csdnimg.cn/static/logo/favicon32.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="./1.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	</head>
+	<body>
+		<div class="wq">
+			<a href="#">首页</a><span>|</span>
+			<a href="#">更多</a><span>|</span>
+			<a href="#">热门</a><span>|</span>
+			<a href="#">关于</a><span>|</span>
+			<a href="mailto:534240265@qq.com">联系我们</a>
+			<div class="qe">
+				<a href="form.html">登录</a><span>|</span>
+				<a href="form1.html">注册</a>
+			</div>
+			<div class="qw">
+				<div id="fg" class="dd">
+					<p class="ee">全国新闻热搜榜</p>
+					<p class="ee">《--全网&nbsp;微博--》</p>
+					<div>
+						<el-button @click="show3 = !show3 ,change()">Click Me</el-button>
+						<el-button @click="show3 = !show3 ,chang()">Click Me</el-button>
+						<div style="margin-top: 20px; height: 200px;">
+							<el-collapse-transition>
+								<div v-show="show3">
+									<div class="transition-box" v-for="(item,i) of News">{{i+1}},{{item}}。</div>
+								</div>
+							</el-collapse-transition>
+						</div>
+					</div>
+					<div id="v">
+						<el-button @click="getJoke()">Click Me</el-button>
+						<p class="nb">{{joke}}</p>
+					</div>
+					<div id="jk">
+						<div class="wrap" id="app">
+							<div class="search_form">
+								<div class="logo"><img src="logo.png" alt="logo" /></div>
+								<div class="form_group">
+									<input type="text" class="input_txt" placeholder="请输入查询的天气" v-model="city"
+										@keyup.enter="queryWeather" />
+									<button class="input_sub" @click="queryWeather">
+										搜 索
+									</button>
+								</div>
+								<div class="hotkey">
+									<!-- <a href="javascript:;" @click="clickSearch('北京')">北京</a>
+					          <a href="javascript:;" @click="clickSearch('上海')">上海</a>
+					          <a href="javascript:;" @click="clickSearch('广州')">广州</a>
+					          <a href="javascript:;" @click="clickSearch('深圳')">深圳</a> -->
+									<a href="javascript:;" v-for="city in hotCitys"
+										@click="clickSearch(city)">{{ city }}</a>
+								</div>
+							</div>
+							<ul class="weather_list">
+								<li v-for="(item,index) in forecastList" :key="item.date"
+									:style="{transitionDelay:index*100+'ms'}">
+									<div class="info_type">
+										<span class="iconfont">{{ item.type }}</span>
+									</div>
+									<div class="info_temp">
+										<b>{{ item.low}}</b>
+										~
+										<b>{{ item.high}}</b>
+
+									</div>
+									<div class="info_date">
+										<span>{{ item.date }}</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="fd">
+						<el-button @click="chan()">Click Me</el-button>
+						<p>{{tt}}</p>
+						<img v-bind:src="pic"><br>
+						<p v-show="isShow">原址：</p>
+						<a v-bind:href="ul">{{ul}}</a>
+					</div>
+				</div>
+			</div>
+			<div id="tt">
+				<div id="zx">
+					<p style="position: absolute;top=20px;left: 0px;">搜索</p>
+					<input type="text" placeholder="搜索一下"
+						style="width: 760px; height: 35px; position: absolute;left:40px" />
+					<button style="position: absolute;top: 0px;left: 700px;width: 100px;height: 36px;"
+						@click="ea()">搜索</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el: "#fg",
+				data: {
+					News: [],
+					joke: "",
+					city: "武汉",
+					forecastList: [],
+					hotCitys: ["北京", "上海", "广州", "深圳"],
+					tt: "",
+					pic: "",
+					ul: "",
+					isShow:false,
+					show3:false
+				},
+				methods: {
+					change() {
+						var that = this;
+						that.News = [];
+						axios.get("http://api.tianapi.com/networkhot/index?key=3ee29c8b7a5f0add14287c95e40188a8")
+							.then(function(res) {
+								console.log(res);
+								for (var i = 0; i <= 20; i++)
+									that.News.push(res.data.newslist[i].title);
+							})
+					},
+					chang() {
+							var that = this;
+							that.News = [];
+							axios.get("http://api.tianapi.com/weibohot/index?key=3ee29c8b7a5f0add14287c95e40188a8")
+								.then(function(res) {
+									console.log(res);
+									for (var i = 0; i <= 20; i++)
+										that.News.push(res.data.newslist[i].hotword);
+								})
+					},
+					getJoke() {
+						var that = this;
+						// that.joke=[];
+						axios.get("http://api.tianapi.com/joke/index?key=3ee29c8b7a5f0add14287c95e40188a8&num=1")
+							.then(function(res) {
+								console.log(res);
+								that.joke = res.data.newslist[0].content;
+							})
+					},
+					queryWeather() {
+						this.forecastList = [];
+						axios
+							.get(`http://wthrcdn.etouch.cn/weather_mini?city=${this.city}`)
+							.then(res => {
+								console.log(res);
+								this.forecastList = res.data.data.forecast;
+							})
+							.catch(err => {
+								console.log(err);
+							})
+							.finally(() => {});
+					},
+					clickSearch(city) {
+						this.city = city;
+						this.queryWeather();
+					},
+					chan() {
+						var that = this;
+						that.isShow =true ;
+						axios.get("http://api.tianapi.com/tiyu/index?key=3ee29c8b7a5f0add14287c95e40188a8&num=2")
+							.then(function(res) {
+								console.log(res);
+								that.tt = res.data.newslist[0].title;
+								that.pic = res.data.newslist[0].picUrl;
+								that.ul = res.data.newslist[0].url;
+							})
+					}
+				}
+			})
+			new Vue({
+				el: "#zx",
+				data: {
+
+				},
+				methods: {
+					ea() {
+						alert("别点了，没东西");
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

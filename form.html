@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>登录界面</title>
+		<link rel="stylesheet" type="text/css" href="3.css" />
+		<link rel="Shortcut Icon" href="http://acm.hrbust.edu.cn/Public/images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<form>
+			<div id="yt">
+				<a href="index.html">首页</a><span>|</span>
+				<a href="#">更多</a><span>|</span>
+				<a href="#">热门</a><span>|</span>
+				<a href="#">关于</a><span>|</span>
+				<a href="mailto:534240265@qq.com">联系我们</a>
+			</div>
+			<div id="box">
+				<div id="rt">
+					<p class="yy">登&nbsp;&nbsp;&nbsp;录</p>
+				</div>
+				<div id="user">
+					<label>用户名:</label>
+					<input type="text" id="username" placeholder="请输入用户名" />
+				</div>
+				<div id="pass">
+					<label>密&nbsp;&nbsp;&nbsp;码:</label>
+					<input type="password" id="password" placeholder="请输入密码" />
+				</div>
+				<div id="submit">
+					<!-- 点击登录按钮，触发checkLog()事件 -->
+					<!-- onclick="checkLog()" onclick参数值中的方法名后面一定要加上括号 -->
+					<button onclick="checkLog()">登&nbsp;&nbsp;&nbsp;录</button>
+				</div>
+				<div id="zhuce">
+					<a href="form1.html" id="bv">如果还没有账号，先去注册</a>
+				</div>
+			</div>
+		</form>
+		<script src="2.js"></script>
+	</body>
+</html>
